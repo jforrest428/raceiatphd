@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Race IAT</title>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script>
+</head>
+<body>
+<script>
+  require.config({
+    paths: {
+      pipAPI: "https://cdn.jsdelivr.net/gh/baranan/minno-plugins@0.*/dist/pip.min",
+      pipScorer: "https://cdn.jsdelivr.net/gh/baranan/minno-plugins@0.*/dist/scorer",
+      underscore: "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min"
+    }
+  });
+
+  require(['iat7'], function(iatExtension){
+    return iatExtension({});
+  });
+</script>
+</body>
+</html>
