@@ -11,12 +11,14 @@
     paths: {
       pipAPI: "https://cdn.jsdelivr.net/gh/baranan/minno-plugins@0.*/dist/pip.min",
       pipScorer: "https://cdn.jsdelivr.net/gh/baranan/minno-plugins@0.*/dist/scorer",
-      underscore: "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min"
+      underscore: "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min"
     }
   });
 
-  require(['iat7'], function(iatExtension){
-    return iatExtension({});
+  require(['pipAPI', 'pipScorer', 'underscore'], function(pipAPI, pipScorer, _) {
+    require(['iat7'], function(iatExtension) {
+      return iatExtension({});
+    });
   });
 </script>
 </body>
