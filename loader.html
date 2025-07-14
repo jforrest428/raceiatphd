@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Race IAT</title>
-  <script data-main="loader" src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script>
-</head>
-<body>
-  <h2>Loading Race IAT... (Press Spacebar to begin)</h2>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Race IAT</title>
+  </head>
+  <body>
+    <h2>Loading Race IAT... (Press Spacebar to begin)</h2>
 
-  <script>
-    require.config({
-      paths: {
-        pipAPI: "https://cdn.jsdelivr.net/gh/baranan/minno-plugins@0.3.0/dist/pip.min",
-        pipScorer: "https://cdn.jsdelivr.net/gh/baranan/minno-plugins@0.3.0/dist/scorer",
-        underscore: "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-min"
-      }
-    });
-
-    require(['pipAPI', 'pipScorer', 'underscore'], function(pipAPI, pipScorer, _) {
-      require(['iat7.js'], function(iatExtension) {
-        return iatExtension({});
+    <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js"></script>
+    <script>
+      require.config({
+        paths: {
+          pipAPI: 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.3.0/pip/pipAPI',
+          pipScorer: 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.3.0/pip/pipScorer',
+          underscore: 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min',
+          iat7: 'iat7' // your custom IAT script in same directory
+        }
       });
-    });
-  </script>
-</body>
-</html>
 
+      document.body.onkeyup = function(e){
+        if(e.code === 'Space') {
+          require(['iat7'], function() {
+            console.log('IAT loaded');
+          });
+        }
+      };
+    </script>
+  </body>
+</html>
